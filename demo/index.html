@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>PreloadJS Demo</title>
+	<script src="../preloader.js"></script>
+</head>
+
+<body>
+
+	<script>
+
+		Preload({
+		    sources: ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'],
+		    onComplete: function () {
+		        console.log('All files preloaded');
+		    }
+		});
+
+
+		Preload({
+		    sources: ['img/0.jpg', 'img/1.jpg'],
+		    onError: function (imagesNotLoaded) {
+		        var imagesNotLoadedList = imagesNotLoaded.join(', ');
+		        console.log('Files not preloaded: ' + imagesNotLoadedList);
+		    }
+		});
+
+	</script>
+   
+</body>
+</html>
