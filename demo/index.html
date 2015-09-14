@@ -12,15 +12,27 @@
 		    sources: ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'],
 		    onComplete: function () {
 		        console.log('All files preloaded');
+		    },
+		    onSuccess: function () {
+		    	console.log('All files successfully loaded');
+		    },
+		    onError: function () {
+		    	console.log('Should not be called');
 		    }
 		});
 
 
 		Preload({
 		    sources: ['img/0.jpg', 'img/1.jpg'],
-		    onError: function (imagesNotLoaded) {
-		        var imagesNotLoadedList = imagesNotLoaded.join(', ');
+		    onComplete: function () {
+		        console.log('All files preloaded, some with errors, some successfully');
+		    },
+		    onError: function (result) {
+		        var imagesNotLoadedList = result.notLoaded.join(', ');
 		        console.log('Files not preloaded: ' + imagesNotLoadedList);
+
+		        var imagesLoadedList = result.loaded.join(', ');
+		        console.log('Files preloaded: ' + imagesLoadedList);
 		    }
 		});
 

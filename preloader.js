@@ -5,11 +5,18 @@
 
 	var Preload = function (options) {
 
-		var sources = options.sources || [],
-			onErrorCallback = options.onError || function () {},
-			onCompleteCallback = options.onComplete || function () {};
+		var emptyFunction = function () {};
 
-		var imagesNotLoaded = [];
+		var sources = options.sources || [],
+			// callback called if some of the images could not be loaded
+			onCompletedWithErrors = options.onError || emptyFunction,
+			// callback called if all the images are successfully loaded
+			onCompletedSuccessfully = options.onSuccess || emptyFunction,
+			// callback called after all the operations are completed, whether there are any errors or not
+			onComplete = options.onComplete || emptyFunction;
+
+		var imagesNotLoaded = [],
+			imagesLoaded    = [];
 
 		var totalImagesToLoad = sources.length,
 			totalImagesLoaded = 0;
@@ -25,6 +32,7 @@
 			image.onload = function () {
 
 				totalImagesLoaded++;
+				imagesLoaded.push(this.src);
 				if (totalImagesLoaded === totalImagesToLoad) {
 					onImagesPreloaded();
 				}
@@ -43,13 +51,19 @@
 
 		}
 
+		var result = {};
+		result.loaded    = imagesLoaded;
+		result.notLoaded = imagesNotLoaded;
+
 		function onImagesPreloaded () {
 
 			if (imagesNotLoaded.length) {
-				onErrorCallback(imagesNotLoaded);
+				onCompletedWithErrors(result);
 			} else {
-				onCompleteCallback();
+				onCompletedSuccessfully(result);
 			}
+
+			onComplete(result);
 		}
 
 	};
