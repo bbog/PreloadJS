@@ -24,8 +24,12 @@
 
 		Preload({
 		    sources: ['img/0.jpg', 'img/1.jpg'],
-		    onComplete: function () {
-		        console.log('All files preloaded, some with errors, some successfully');
+		    onComplete: function (result, err) {
+		    	if (err) {
+		        	console.log('All files preloaded, some with errors, some successfully');
+		        } else {
+		        	console.log('Should not be callded');
+		        }
 		    },
 		    onError: function (result) {
 		        var imagesNotLoadedList = result.notLoaded.join(', ');

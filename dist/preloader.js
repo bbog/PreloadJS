@@ -15,6 +15,8 @@
 			// callback called after all the operations are completed, whether there are any errors or not
 			onComplete = options.onComplete || emptyFunction;
 
+		var hasErrors = false;
+
 		var imagesNotLoaded = [],
 			imagesLoaded    = [];
 
@@ -40,6 +42,8 @@
 
 			image.onerror = function () {
 
+				hasErrors = true;
+
 				totalImagesLoaded++;
 				imagesNotLoaded.push(this.src);
 				if (totalImagesLoaded === totalImagesToLoad) {
@@ -60,7 +64,7 @@
 			if (imagesNotLoaded.length) {
 				onCompletedWithErrors(result);
 			} else {
-				onCompletedSuccessfully(result);
+				onCompletedSuccessfully(result, hasErrors);
 			}
 
 			onComplete(result);
