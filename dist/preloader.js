@@ -1,12 +1,14 @@
 /*!
  * Preload - a small image preloading library
- * v0.1
+ * v0.1.1
  * awesomestsite.com/awesomest-projects/preload-js
  * copyright Bogdan Bucur 2014-2015
  * MIT License
 */
 
-(function () {
+(function (w) {
+
+	var reference = 'Preload';
 
 	var Preload = function (options) {
 
@@ -77,6 +79,6 @@
 
 	};
 
-	window.Preload = window.Preload || Preload;
+	w[reference] = w[reference] || Preload;
 
-})();
+})(window);
