@@ -1,7 +1,7 @@
 /*!
- * Preload - a small image preloading library
+ * PreloaderJS - a small image preloading library
  * v0.1.1
- * awesomestsite.com/awesomest-projects/preload-js
+ * awesomestsite.com/awesomest-projects/preloader-js
  * copyright Bogdan Bucur 2014-2015
  * MIT License
 */
