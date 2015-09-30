@@ -71,10 +71,10 @@
 			if (imagesNotLoaded.length) {
 				onCompletedWithErrors(result);
 			} else {
-				onCompletedSuccessfully(result, hasErrors);
+				onCompletedSuccessfully(result);
 			}
 
-			onComplete(result);
+			onComplete(result, hasErrors);
 		}
 
 	};
