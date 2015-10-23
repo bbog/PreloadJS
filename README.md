@@ -23,7 +23,7 @@ For example, you want to make a custom animated scene and you need all the image
 
 ##Demo
 
-- [Demo](http://awesomestsite.com/awesomest-projects/preloader-js/demo.html)
+- [Demo](http://awesomestsite.com/awesomest-projects/preloader-js/demo/)
 
 
 ##Basic usage
