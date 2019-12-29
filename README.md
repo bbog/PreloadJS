@@ -12,7 +12,7 @@ For example, you want to make a custom animated scene and you need all the image
 
 ##Project page
 
-- [PreloaderJS](http://awesomestsite.com/awesomest-projects/preloader-js/)
+- [PreloaderJS](https://dev.bogdanbucur.eu/awesomest-projects/preloader-js/)
 
 
 ##Download
@@ -23,7 +23,7 @@ For example, you want to make a custom animated scene and you need all the image
 
 ##Demo
 
-- [Demo](http://awesomestsite.com/awesomest-projects/preloader-js/demo/)
+- [Demo](https://dev.bogdanbucur.eu/awesomest-projects/preloader-js/demo/)
 
 
 ##Basic usage
